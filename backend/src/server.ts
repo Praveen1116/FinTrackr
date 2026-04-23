@@ -1,6 +1,13 @@
-import app from "./app";
+import dotenv from "dotenv";
+dotenv.config();
 
+import app from "./app";
+import { connectDB } from "./config/db";
 
 const PORT = 3000;
 
-app.listen(PORT);
+connectDB().then(() => {
+    app.listen(PORT);
+}).catch((error) => {
+    console.error("Database connection failed", error);
+});
