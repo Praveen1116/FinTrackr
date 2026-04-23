@@ -63,7 +63,8 @@ FinTrackr/
 ├── backend/
 │   └── src/
 │       ├── config/
-│       │   └── db.ts
+│       │   └── credentials.ts
+|       |   └── db.ts
 │       │       # MongoDB connection setup
 │
 │       ├── controllers/
