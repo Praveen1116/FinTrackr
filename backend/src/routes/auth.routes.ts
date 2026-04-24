@@ -1,0 +1,11 @@
+import express from "express";
+import bcrypt from "bcrypt"
+import { UserModel } from "../models/user.model";
+import { loginUser, registerUser } from "../controllers/auth.controller";
+
+const router = express.Router();
+
+router.post("/register", registerUser);
+router.post("/login", loginUser);
+
+export const authRoutes = router;
