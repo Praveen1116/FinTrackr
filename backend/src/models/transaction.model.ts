@@ -7,7 +7,7 @@ const TransactionSchema = new Schema({
     date: { type: Date, required: true },
     note: { type: String },
     createdAt: { type: Date, default: Date.now },
-    userId: { type: mongoose.Types.ObjectId, ref: "user", required: true }
+    userId: { type: Schema.Types.ObjectId, ref: "user", required: true }
 });
 
 export const TransactionModel = model("transactions", TransactionSchema);
