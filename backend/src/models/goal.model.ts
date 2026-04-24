@@ -7,7 +7,7 @@ const goalSchema = new Schema({
     deadline: { type: Date },
     status: { type: String, enum: ["active", "completed"], default: "active" },
     createdAt: { type: Date, default: Date.now },
-    userId: { type: mongoose.Types.ObjectId, ref: "user", required: true }
+    userId: { type: Schema.Types.ObjectId, ref: "user", required: true }
 });
 
 export const goalModel = model("goal", goalSchema);
