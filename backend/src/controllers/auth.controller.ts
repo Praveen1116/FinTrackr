@@ -36,10 +36,10 @@ export const registerUser = async (req: Request, res: Response) => {
 };
 
 export const loginUser = async (req: Request, res: Response) => {
-    const { username, email, password } = req.body;
+    const { email, password } = req.body;
 
     try {
-        if(!username || !email || !password) {
+        if(!email || !password) {
             return res.status(409).json({ message: "All fields are necessary" });
         }
 
