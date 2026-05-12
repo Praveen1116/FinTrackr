@@ -64,5 +64,25 @@ export const updateGoals = async (req: AuthRequest, res: Response) => {
 }
 
 export const deleteGoals = async (req: AuthRequest, res: Response) => {
+    const { id } = req.params;
 
+    try {
+        if(!req.user?.userId) {
+            return res.status(401).json({ message: "Unauthorized" });
+        }
+
+        const deletedGoal = await goalModel.findOneAndDelete({
+            _id: id,
+            userId: req.user.userId
+        });
+
+        if(!deletedGoal) {
+            return res.status(404).json({ message: "Goal not found" });
+        }
+
+        return res.status(200).json({ message: "Goal deleted successfully" });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: "Failed to delete the goal" });
+    }
 }
