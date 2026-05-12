@@ -44,8 +44,18 @@ export const goals = async (req: AuthRequest, res: Response) => {
         if(!req.user?.userId) {
             return res.status(401).json({ message: "Unauthorized" });
         }
-    } catch (err) {
 
+        const allGoals = await goalModel.find({
+            userId: req.user.userId
+        }).sort({ date: -1 });
+
+        return res.status(200).json({
+            message: "Goals fetched successfully",
+            goals: allGoals
+        });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: "Failed to fetch goals" });
     }
 }
 
