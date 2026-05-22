@@ -1,6 +1,6 @@
 import express from "express";
 import { authMiddleware } from "../middleware/auth.middleware";
-import { category, monthly, summary } from "../controllers/analytics.contollers";
+import { category, monthly, summary } from "../controllers/analytics.controllers";
 
 const router = express.Router();
 
