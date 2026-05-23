@@ -92,10 +92,6 @@ FinTrackr/
 │       │   └── auth.middleware.ts
 │       │       # Authentication (JWT)
 │
-│       ├── utils/
-│       │   └── calculations.ts
-│       │       # Helper functions (analytics logic)
-│
 │       ├── app.ts
 │       │       # Express app setup
 │
